@@ -40,4 +40,13 @@ public abstract class Karakter {
     public void setKarakterNimi(String nimi) {
         this.nimi = nimi;
     }
+
+    @Override
+    public String toString() {
+        return "Karakter{" +
+                "elud=" + elud +
+                ", nimi='" + nimi + '\'' +
+                ", energia=" + energia +
+                '}';
+    }
 }

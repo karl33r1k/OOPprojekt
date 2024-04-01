@@ -51,4 +51,10 @@ public abstract class Vaenlane {
     public void setElud(int elud) {
         this.elud = elud;
     }
+
+    @Override
+    public String toString() {
+        return "Vaenlase tüüp: " + nimi +
+                ", vaenlase elud: " + elud;
+    }
 }
