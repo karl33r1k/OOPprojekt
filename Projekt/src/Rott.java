@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Rott extends KergedVaenlased{
 
     public Rott(String nimi) {
@@ -6,16 +8,10 @@ public class Rott extends KergedVaenlased{
 
     @Override
     public void rynda(Karakter karakter) {
-        super.rynda(karakter);
-    }
-
-    @Override
-    public void kaitse(Karakter karakter) {
-        super.kaitse(karakter);
-    }
-
-    @Override
-    public void ravi() {
-        super.ravi();
+        for (int i = 0; i < 3; i++) {
+            Random random = new Random();
+            int rynne = random.nextInt(0,10);
+            karakter.setElud(karakter.getElud() - rynne);
+        };
     }
 }

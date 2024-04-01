@@ -4,19 +4,4 @@ public abstract class KergedVaenlased extends Vaenlane{
         super(nimi);
         this.elud = 50;
     }
-
-    @Override
-    public void rynda(Karakter karakter) {
-        super.rynda(karakter);
-    }
-
-    @Override
-    public void kaitse(Karakter karakter) {
-        super.kaitse(karakter);
-    }
-
-    @Override
-    public void ravi() {
-        super.ravi();
-    }
 }

@@ -11,6 +11,5 @@ public class Main {
         } else if (karakteriTüüp == "Vibulaskja") {
             Vibulaskja vibulaskja = new Vibulaskja(karakteriNimi);
         }
-        
     }
 }

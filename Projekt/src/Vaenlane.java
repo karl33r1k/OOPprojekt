@@ -19,6 +19,19 @@ public abstract class Vaenlane {
         int suvalinetagasilook = random.nextInt(0,10)+1;
         karakter.setElud(karakter.getElud() - suvalinetagasilook);
     }
+    public void tegevus(Karakter karakter){
+        Random random = new Random();
+        int suvalinearv = random.nextInt(0,3);
+        if (suvalinearv == 0){
+            rynda(karakter);
+        }
+        else if (suvalinearv == 1) {
+            kaitse(karakter);
+        }
+        else if (suvalinearv == 2) {
+            ravi();
+        }
+    }
 
 
     public void ravi() {setElud(getElud()+5);}
