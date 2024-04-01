@@ -3,9 +3,11 @@ import java.util.Random;
 public abstract class Karakter {
     public int elud;
     public String nimi;
+    public int energia;
 
     public Karakter(String nimi) {
         this.nimi = nimi;
+        this.energia = 50;
     }
     public void rynda(Vaenlane vaenlane) {
         vaenlane.setElud(vaenlane.getElud() - 10);
@@ -18,6 +20,9 @@ public abstract class Karakter {
     public void ravi() {
         setElud(getElud()+5);
     }
+    public void puhka(){
+        energia += 50;
+    }
 
     public int getElud() {
         return elud;
@@ -26,6 +31,7 @@ public abstract class Karakter {
     public void setElud(int elud) {
         this.elud = elud;
     }
+
 
     public String getKarakterNimi() {
         return nimi;
