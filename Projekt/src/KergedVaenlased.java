@@ -7,10 +7,6 @@ public abstract class KergedVaenlased extends Vaenlane{
     public int raviNum;
     public KergedVaenlased(String nimi) {
         super(nimi);
-        this.elud = 50;
-        this.rynnakNum = 10;
-        this.kaitseNum = 10;
-        this.raviNum = 2;
     }
 
     @Override
@@ -19,11 +15,13 @@ public abstract class KergedVaenlased extends Vaenlane{
     }
     @Override
     public void kaitse(Karakter karakter) {
-        System.out.println("Vaenlane otsustas kaitsta");
+        System.out.println("Vaenlane otsustas kaitsta ");
     }
     @Override
     public void ravi() {
         System.out.println("Vaenlane otsustas ravida");
+        setElud(getElud()+raviNum);
+        System.out.println("Vaenlane ravis ennast: " + raviNum);
     }
     @Override
     public void tegevus(Karakter karakter) {
@@ -37,7 +35,6 @@ public abstract class KergedVaenlased extends Vaenlane{
             ravi();
         }
     }
-
     @Override
     public int getElud() {
         return elud;

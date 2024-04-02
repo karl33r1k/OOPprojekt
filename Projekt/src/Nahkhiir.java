@@ -6,6 +6,8 @@ public class Nahkhiir extends KergedVaenlased{
         super(nimi);
         this.elud = 25;
         this.rynnakNum = 20;
+        this.kaitseNum = 5;
+        this.raviNum = 12;
     }
 
     @Override
@@ -22,10 +24,5 @@ public class Nahkhiir extends KergedVaenlased{
         int suvalinetagasilook = random.nextInt(0,10)+1;
         karakter.setElud(karakter.getElud() - suvalinetagasilook);
 
-    }
-
-    @Override
-    public void ravi() {
-        super.ravi();
     }
 }
