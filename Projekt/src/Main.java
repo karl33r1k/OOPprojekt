@@ -7,26 +7,26 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Sisesta nimi: ");
+        System.out.println("Sisesta enda karakteri nimi: ");
         String nimi = scanner.nextLine();
-        System.out.println("Sisesta tüüp: ");
+        System.out.println("Sisesta karakteri tüüp: ");
+        System.out.println("Valikud on: 'Sõdur', 'Meedik', 'Vibulaskja'");
         String tüüp = scanner.nextLine();
         System.out.println("Sisesta raskusaste: ");
+        System.out.println("Valikud on: 'Kerge', 'Raske'");
         String raskusaste = scanner.nextLine();
 
         Karakter karakter = karakterityyp(nimi, tüüp);
-        List<Vaenlane> vaenlased = vaenlased(raskusaste);
-
-        boolean mängustaatus = true;
 
         int skoor = 0;
         int raund = 0;
 
         while (karakter.getElud() > 0) {
-            //Suvalise vaenlase saamine
+//            //Suvalise vaenlase saamine
             Random random = new Random();
-            int suva = random.nextInt(0, vaenlased.size());
-            Vaenlane vaenlane = vaenlased.get(suva);
+//            int suva = random.nextInt(0, vaenlased.size());
+//            Vaenlane vaenlane = vaenlased.get(suva);
+            Vaenlane vaenlane = vaenlased(raskusaste);
             // määrab, kas esimesena alustab mängija või vaenlane
             int suva2 = random.nextInt(0, 2);
             if (suva2 == 0) { // kui on 0, alustab mängija
@@ -34,7 +34,7 @@ public class Main {
                     System.out.println(karakter);
                     if (karakter.getElud() > 0) {
                         System.out.println(vaenlane);
-                        System.out.println("Valikud on: R - ründa, K - kaitse, P - parane");
+                        System.out.println("Valikud on: 'R' - ründa, 'K' - kaitse, 'P' - parane");
                         System.out.println("Sisesta valik: ");
                         String valik = scanner.nextLine();
                         if (valik.equals("R")) {
@@ -47,7 +47,6 @@ public class Main {
                         //vaenlase kaik
                         vaenlane.tegevus(karakter);
                     }else {
-                        mängustaatus = false;
                         System.out.println(nimi + " saavutas " + skoor + " punkti.");
                         break;
                     }
@@ -56,9 +55,9 @@ public class Main {
             } else { // alustab vaenlane
                 while(vaenlane.getElud() > 0) {
                     if (karakter.getElud() > 0) {
-                        System.out.println(karakter);
                         vaenlane.tegevus(karakter);
                         System.out.println(vaenlane);
+                        System.out.println(karakter);
                         //Mangija kaik
                         System.out.println("Valikud on: R - ründa, K - kaitse, P - parane");
                         System.out.println("Sisesta valik: ");
@@ -72,14 +71,15 @@ public class Main {
                         }
 
                     } else {
-                        mängustaatus = false;
                         System.out.println(nimi + " saavutas " + skoor + " punkti.");
                         break;
                     }
                 }
             }
-            if (vaenlane.getElud() <= 0){
-                System.out.println("Võitsid " + vaenlane.getNimi() + " vastu. Sind ootab ees uus vastane.");
+            if (vaenlane.getElud() <= 0) {
+                skoor += skoorisysteem(vaenlane);
+                System.out.println("Võitsid vastase " + vaenlane.getNimi() + " vastu. Sind ootab ees uus vastane.");
+                System.out.println();
             }
         }
     }
@@ -94,19 +94,48 @@ public class Main {
             }
             return karakter;
         }
-        public static List<Vaenlane> vaenlased(String raskusaste) {
+        public static Vaenlane vaenlased(String raskusaste) {
+            Vaenlane vaenlane1 = null;
             List<Vaenlane> vaenlased = new ArrayList<Vaenlane>();
             if (raskusaste.equals("Kerge")) {
-                vaenlased.add(new Nahkhiir("nahkhiir"));
-                vaenlased.add(new Rott("rott"));
-                vaenlased.add(new Vihmauss("vihmauss"));
+                Vaenlane nahkhiir = new Nahkhiir("nahkhiir");
+                Vaenlane rott = new Rott("rott");
+                Vaenlane vihmauss = new Vihmauss("vihmauss");
+                Random random = new Random();
+                int suvaline = random.nextInt(0,3);
+                if (suvaline == 0){
+                    vaenlane1 = nahkhiir;
+                } else if (suvaline == 1) {
+                    vaenlane1 = rott;
+                } else if (suvaline == 2) {
+                    vaenlane1 = vihmauss;
+                }
             } else if (raskusaste.equals("Raske")) {
                 vaenlased.add(new Raisakotkas("raisakotkas"));
                 vaenlased.add(new Hunt("hunt"));
                 vaenlased.add(new Draakon("draakon"));
             }
-            return vaenlased;
+            return vaenlane1;
         }
+        public static int skoorisysteem(Vaenlane vaenlane){
+            int skoor = 0;
+            if (vaenlane.getNimi().equals("rott")){
+                skoor += 100;
+            } else if (vaenlane.getNimi().equals("nahkhiir")) {
+                skoor += 120;
+            } else if (vaenlane.getNimi().equals("vihmauss")){
+                skoor += 140;
+            } else if (vaenlane.getNimi().equals("rott")) {
+
+            } else if (vaenlane.getNimi().equals("rott")) {
+
+            } else if (vaenlane.getNimi().equals("rott")) {
+
+            }
+            return skoor;
+        }
+
+
 
 
 }
