@@ -23,6 +23,7 @@ public class Nahkhiir extends KergedVaenlased{
         Random random = new Random();
         int suvalinetagasilook = random.nextInt(0,10)+1;
         karakter.setElud(karakter.getElud() - suvalinetagasilook);
+        System.out.println("Vaenlane ründas ja tegi haiget: " + rynnakNum);
 
     }
 }

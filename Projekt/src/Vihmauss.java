@@ -22,6 +22,7 @@ public class Vihmauss extends KergedVaenlased{
         Random random = new Random();
         int suvalinetagasilook = random.nextInt(0,kaitseNum)+1;
         karakter.setElud(karakter.getElud() - suvalinetagasilook);
+        System.out.println("Vaenlane ründas ja tegi haiget: " + rynnakNum);
     }
 
     @Override

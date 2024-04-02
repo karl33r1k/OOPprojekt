@@ -1,5 +1,4 @@
 public class Draakon extends RaskedVaenlased {
-    public int elud;
     private int mitmesrynnak;
     public Draakon(String nimi) {
         super(nimi);
