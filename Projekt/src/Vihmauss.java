@@ -4,12 +4,13 @@ public class Vihmauss extends KergedVaenlased{
 
     public Vihmauss(String nimi) {
         super(nimi);
+        this.elud = 30;
     }
 
     @Override
     public void rynda(Karakter karakter) {
         super.rynda(karakter);
-        karakter.setElud(karakter.getElud() + 5);
+        karakter.setElud(karakter.getElud() - 5);
     }
 
     @Override

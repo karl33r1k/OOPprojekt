@@ -5,7 +5,6 @@ public abstract class Vaenlane {
     public int elud;
     public Vaenlane(String nimi) {
         this.nimi = nimi;
-        this.elud = 25;
     }
 
 
@@ -21,17 +20,16 @@ public abstract class Vaenlane {
     }
     public void tegevus(Karakter karakter){
         Random random = new Random();
-        int suvalinearv = random.nextInt(0,3);
-        if (suvalinearv == 0){
+        int suva3 = random.nextInt(0, 3); // otsustab, mida teeb vaenlane
+        if (suva3 == 0) {
             rynda(karakter);
-        }
-        else if (suvalinearv == 1) {
+        } else if (suva3 == 1) {
             kaitse(karakter);
-        }
-        else if (suvalinearv == 2) {
+        } else if (suva3 == 2) {
             ravi();
         }
     }
+
 
 
     public void ravi() {setElud(getElud()+5);}
@@ -50,11 +48,5 @@ public abstract class Vaenlane {
 
     public void setElud(int elud) {
         this.elud = elud;
-    }
-
-    @Override
-    public String toString() {
-        return "Vaenlase tüüp: " + nimi +
-                ", vaenlase elud: " + elud;
     }
 }
