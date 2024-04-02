@@ -7,20 +7,16 @@ public abstract class RaskedVaenlased extends Vaenlane {
     public int raviNum;
     public RaskedVaenlased(String nimi) {
         super(nimi);
-        this.elud = 70;
     }
 
     @Override
     public void rynda(Karakter karakter) {
         System.out.println("Vaenlane otsustas rünnata");
-//        karakter.setElud(karakter.getElud() - 30);
     }
 
     @Override
     public void kaitse(Karakter karakter) {
-//        Random random = new Random();
-//        int suvalinetagasilook = random.nextInt(0,20)+1;
-//        karakter.setElud(karakter.getElud() - suvalinetagasilook);
+        System.out.println("Vaenlane otsustas kaitsta ");
     }
 
     @Override
@@ -41,6 +37,16 @@ public abstract class RaskedVaenlased extends Vaenlane {
         System.out.println("Vaenlane otsustas ravida");
         setElud(getElud() + raviNum);
         System.out.println("Vaenlane ravis ennast " + raviNum);
+    }
+
+    @Override
+    public int getElud() {
+        return elud;
+    }
+
+    @Override
+    public void setElud(int elud) {
+        this.elud = elud;
     }
 
     @Override
