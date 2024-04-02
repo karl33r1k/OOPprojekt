@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sisesta enda karakteri nimi: ");
@@ -58,7 +59,7 @@ public class Main {
                         vaenlane.tegevus(karakter);
                         System.out.println(vaenlane);
                         System.out.println(karakter);
-                        //Mangija kaik
+                        // mangija kaik
                         System.out.println("Valikud on: R - ründa, K - kaitse, P - parane");
                         System.out.println("Sisesta valik: ");
                         String valik = scanner.nextLine();
@@ -111,9 +112,18 @@ public class Main {
                     vaenlane1 = vihmauss;
                 }
             } else if (raskusaste.equals("Raske")) {
-                vaenlased.add(new Raisakotkas("raisakotkas"));
-                vaenlased.add(new Hunt("hunt"));
-                vaenlased.add(new Draakon("draakon"));
+                Vaenlane raisakotkas = new Raisakotkas("raisakotkas");
+                Vaenlane hunt = new Hunt("hunt");
+                Vaenlane draakon = new Draakon("draakon");
+                Random random = new Random();
+                int suvaline = random.nextInt(0,3);
+                if (suvaline == 0){
+                    vaenlane1 = raisakotkas;
+                } else if (suvaline == 1) {
+                    vaenlane1 = hunt;
+                } else if (suvaline == 2) {
+                    vaenlane1 = draakon;
+                }
             }
             return vaenlane1;
         }
@@ -125,12 +135,12 @@ public class Main {
                 skoor += 120;
             } else if (vaenlane.getNimi().equals("vihmauss")){
                 skoor += 140;
-            } else if (vaenlane.getNimi().equals("rott")) {
-
-            } else if (vaenlane.getNimi().equals("rott")) {
-
-            } else if (vaenlane.getNimi().equals("rott")) {
-
+            } else if (vaenlane.getNimi().equals("raisakotkas")) {
+                skoor += 200;
+            } else if (vaenlane.getNimi().equals("hunt")) {
+                skoor += 240;
+            } else if (vaenlane.getNimi().equals("draakon")) {
+                skoor += 280;
             }
             return skoor;
         }
