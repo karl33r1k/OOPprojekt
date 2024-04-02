@@ -7,14 +7,13 @@ public abstract class Karakter extends Karakterid {
     }
 
     public void rynda(Vaenlane vaenlane) {
-        vaenlane.setElud(vaenlane.getElud() - 10);
+        System.out.println("Karakter ründab");
     }
     public void kaitse(Vaenlane vaenlane) {
-        Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0,10)+1;
-        vaenlane.setElud(vaenlane.getElud() - suvalinetagasilook);
+        System.out.println("Karakter kaitseb");
     }
     public void ravi() {
+        System.out.println("Karakter ravib");
         setElud(getElud()+raviNum);
     }
     public void puhka(){
@@ -23,6 +22,7 @@ public abstract class Karakter extends Karakterid {
         energia += suvalineenergia;
         System.out.println("Karakter sai: " + suvalineenergia + " energiat");
     }
+    public abstract void erilinevoime(Vaenlane vaenlane);
 
     public int getElud() {
         return elud;
@@ -40,6 +40,7 @@ public abstract class Karakter extends Karakterid {
     public void setKarakterNimi(String nimi) {
         this.nimi = nimi;
     }
+
 
     @Override
     public String toString() {

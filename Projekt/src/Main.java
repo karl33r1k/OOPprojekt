@@ -44,6 +44,8 @@ public class Main {
                             karakter.kaitse(vaenlane);
                         } else if (valik.equals("P")) {
                             karakter.ravi();
+                        } else if(valik.equals("S")){ //special ability
+                            karakter.erilinevoime(vaenlane);
                         }
                         //vaenlase kaik
                         vaenlane.tegevus(karakter);
