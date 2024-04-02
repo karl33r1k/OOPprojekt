@@ -16,7 +16,7 @@ public abstract class RaskedVaenlased extends Vaenlane {
 
     @Override
     public void kaitse(Karakter karakter) {
-        System.out.println("Vaenlane otsustas kaitsta ");
+        System.out.println("Vaenlane otsustas kaitsta");
     }
 
     @Override

@@ -43,10 +43,8 @@ public abstract class Karakter {
 
     @Override
     public String toString() {
-        return "Karakter{" +
-                "elud=" + elud +
-                ", nimi='" + nimi + '\'' +
-                ", energia=" + energia +
-                '}';
+        return "Karakteri nimi: " + nimi +
+                ", karakteri elud: " + elud +
+                ", karakteri energia: " + energia;
     }
 }
