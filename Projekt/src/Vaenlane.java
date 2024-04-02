@@ -26,4 +26,9 @@ public abstract class Vaenlane {
     public void setElud(int elud) {
         this.elud = elud;
     }
+    
+    public String toString() {
+        return "Vaenlase nimi: " + nimi +
+                ", vaenlase elud: " + elud;
+    }
 }

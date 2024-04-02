@@ -49,9 +49,4 @@ public abstract class RaskedVaenlased extends Vaenlane {
         this.elud = elud;
     }
 
-    @Override
-    public String toString() {
-        return "Vaenlase nimi: " + nimi +
-                ", vaenlase elud: " + elud;
-    }
 }

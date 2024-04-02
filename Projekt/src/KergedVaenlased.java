@@ -44,11 +44,5 @@ public abstract class KergedVaenlased extends Vaenlane{
     public void setElud(int elud) {
         this.elud = elud;
     }
-    @Override
-    public String toString() {
-        return "Vaenlane{" +
-                "nimi='" + nimi + '\'' +
-                ", elud=" + elud +
-                '}';
-    }
+
 }
