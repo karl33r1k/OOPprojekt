@@ -7,7 +7,7 @@ public class Nahkhiir extends KergedVaenlased{
         this.elud = 25;
         this.rynnakNum = 20;
         this.kaitseNum = 5;
-        this.raviNum = 12;
+        this.raviNum = 6;
     }
 
     @Override

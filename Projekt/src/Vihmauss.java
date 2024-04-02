@@ -6,7 +6,7 @@ public class Vihmauss extends KergedVaenlased{
         this.elud = 30;
         this.rynnakNum = 10;
         this.kaitseNum = 8;
-        this.raviNum = 15;
+        this.raviNum = 7;
     }
 
     @Override

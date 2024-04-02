@@ -6,7 +6,7 @@ public class Rott extends KergedVaenlased{
         super(nimi);
         this.elud = 20;
         this.kaitseNum = 5;
-        this.raviNum = 8;
+        this.raviNum = 5;
     }
     @Override
     public void rynda(Karakter karakter) {
