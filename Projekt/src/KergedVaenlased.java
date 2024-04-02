@@ -1,10 +1,6 @@
 import java.util.Random;
 
 public abstract class KergedVaenlased extends Vaenlane{
-    public int elud;
-    public int rynnakNum;
-    public int kaitseNum;
-    public int raviNum;
     public KergedVaenlased(String nimi) {
         super(nimi);
     }

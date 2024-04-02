@@ -6,7 +6,7 @@ public class Vihmauss extends KergedVaenlased{
         this.elud = 30;
         this.rynnakNum = 10;
         this.kaitseNum = 8;
-        this.raviNum = 15;
+        this.raviNum = 7;
     }
 
     @Override
@@ -22,7 +22,8 @@ public class Vihmauss extends KergedVaenlased{
         Random random = new Random();
         int suvalinetagasilook = random.nextInt(0,kaitseNum)+1;
         karakter.setElud(karakter.getElud() - suvalinetagasilook);
-        System.out.println("Vaenlane ründas ja tegi haiget: " + rynnakNum);
+        setElud(getElud()+suvalinetagasilook);
+        System.out.println("Vaenlane kaitses ennast ning tegi sulle haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
     }
 
     @Override

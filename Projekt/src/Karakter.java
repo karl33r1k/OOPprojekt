@@ -1,14 +1,11 @@
 import java.util.Random;
 
-public abstract class Karakter {
-    public int elud;
-    public String nimi;
+public abstract class Karakter extends Karakterid {
     public int energia;
-
     public Karakter(String nimi) {
-        this.nimi = nimi;
-        this.energia = 50;
+        super(nimi);
     }
+
     public void rynda(Vaenlane vaenlane) {
         vaenlane.setElud(vaenlane.getElud() - 10);
     }
@@ -18,10 +15,13 @@ public abstract class Karakter {
         vaenlane.setElud(vaenlane.getElud() - suvalinetagasilook);
     }
     public void ravi() {
-        setElud(getElud()+5);
+        setElud(getElud()+raviNum);
     }
     public void puhka(){
-        energia += 50;
+        Random random = new Random();
+        int suvalineenergia = random.nextInt(0,51);
+        energia += suvalineenergia;
+        System.out.println("Karakter sai: " + suvalineenergia + " energiat");
     }
 
     public int getElud() {
@@ -43,10 +43,8 @@ public abstract class Karakter {
 
     @Override
     public String toString() {
-        return "Karakter{" +
-                "elud=" + elud +
-                ", nimi='" + nimi + '\'' +
-                ", energia=" + energia +
-                '}';
+        return "Karakteri nimi: " + nimi +
+                ", karakteri elud: " + elud +
+                ", karakteri energia: " + energia;
     }
 }
