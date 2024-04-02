@@ -2,6 +2,7 @@ public class Raisakotkas extends RaskedVaenlased {
 
     public Raisakotkas(String nimi) {
         super(nimi);
+        this.elud = 40;
     }
 
     @Override

@@ -4,6 +4,7 @@ public class Rott extends KergedVaenlased{
 
     public Rott(String nimi) {
         super(nimi);
+        this.elud = 20;
     }
 
     @Override

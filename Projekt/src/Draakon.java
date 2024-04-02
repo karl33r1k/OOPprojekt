@@ -4,6 +4,7 @@ public class Draakon extends RaskedVaenlased {
     public Draakon(String nimi) {
         super(nimi);
         this.mitmesrynnak = 0;
+        this.elud = 50;
     }
 
     @Override
@@ -12,9 +13,10 @@ public class Draakon extends RaskedVaenlased {
         if (mitmesrynnak % 3 == 0) {
             karakter.setElud(karakter.getElud() - 45);
             System.out.println("Draakon purskas sinu suunas tuld ja vähendas sinu elusid 45 võrra.");
+        }else{
+            karakter.setElud(karakter.getElud() - 35);
+            System.out.println("Draakon ründas sind ja vähendas sinu elusid 35 võrra.");
         }
-        karakter.setElud(karakter.getElud() - 35);
-        System.out.println("Draakon ründas sind ja vähendas sinu elusid 35 võrra.");
     }
 
     @Override

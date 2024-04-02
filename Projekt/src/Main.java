@@ -22,16 +22,18 @@ public class Main {
         int skoor = 0;
         int raund = 0;
 
-        while (mängustaatus) {
-            if (karakter.getElud() > 0) {
-                Random random = new Random();
-                int suva = random.nextInt(0, vaenlased.size());
-                Vaenlane vaenlane = vaenlased.get(suva);
-                int suva2 = random.nextInt(0, 2); // määrab, kas esimesena alustab mängija või vaenlane
-                if (suva2 == 0) { // kui on 0, alustab mängija
-                    while(vaenlane.getElud() > 0){
+        while (karakter.getElud() > 0) {
+            //Suvalise vaenlase saamine
+            Random random = new Random();
+            int suva = random.nextInt(0, vaenlased.size());
+            Vaenlane vaenlane = vaenlased.get(suva);
+            // määrab, kas esimesena alustab mängija või vaenlane
+            int suva2 = random.nextInt(0, 2);
+            if (suva2 == 0) { // kui on 0, alustab mängija
+                while(vaenlane.getElud() > 0){
+                    System.out.println(karakter);
+                    if (karakter.getElud() > 0) {
                         System.out.println(vaenlane);
-                        System.out.println(karakter);
                         System.out.println("Valikud on: R - ründa, K - kaitse, P - parane");
                         System.out.println("Sisesta valik: ");
                         String valik = scanner.nextLine();
@@ -43,28 +45,20 @@ public class Main {
                             karakter.ravi();
                         }
                         //vaenlase kaik
-                        int suva3 = random.nextInt(0, 3); // otsustab, mida teeb vaenlane
-                        if (suva3 == 0) {
-                            vaenlane.rynda(karakter);
-                        } else if (suva3 == 1) {
-                            vaenlane.kaitse(karakter);
-                        } else if (suva3 == 2) {
-                            vaenlane.ravi();
-                        }
+                        vaenlane.tegevus(karakter);
+                    }else {
+                        mängustaatus = false;
+                        System.out.println(nimi + " saavutas " + skoor + " punkti.");
+                        break;
                     }
-                } else { // alustab vaenlane
-                    while(vaenlane.getElud() > 0){
-                        System.out.println(karakter);
-                        int suva3 = random.nextInt(0, 3); // otsustab, mida teeb vaenlane
-                        if (suva3 == 0) {
-                            vaenlane.rynda(karakter);
-                        } else if (suva3 == 1) {
-                            vaenlane.kaitse(karakter);
-                        } else if (suva3 == 2) {
-                            vaenlane.ravi();
-                        }
-                        System.out.println(vaenlane);
+                }
 
+            } else { // alustab vaenlane
+                while(vaenlane.getElud() > 0) {
+                    if (karakter.getElud() > 0) {
+                        System.out.println(karakter);
+                        vaenlane.tegevus(karakter);
+                        System.out.println(vaenlane);
                         //Mangija kaik
                         System.out.println("Valikud on: R - ründa, K - kaitse, P - parane");
                         System.out.println("Sisesta valik: ");
@@ -76,12 +70,16 @@ public class Main {
                         } else if (valik.equals("P")) {
                             karakter.ravi();
                         }
+
+                    } else {
+                        mängustaatus = false;
+                        System.out.println(nimi + " saavutas " + skoor + " punkti.");
+                        break;
                     }
                 }
+            }
+            if (vaenlane.getElud() <= 0){
                 System.out.println("Võitsid " + vaenlane.getNimi() + " vastu. Sind ootab ees uus vastane.");
-            } else {
-                mängustaatus = false;
-                System.out.println(nimi + " saavutas " + skoor + " punkti.");
             }
         }
     }
