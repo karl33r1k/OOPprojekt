@@ -22,9 +22,9 @@ public class Rott extends KergedVaenlased{
     public void kaitse(Karakter karakter) {
         super.kaitse(karakter);
         Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0,10)+1;
+        int suvalinetagasilook = random.nextInt(0,kaitseNum)+1;
         karakter.setElud(karakter.getElud() - suvalinetagasilook);
-        setElud(getElud()+raviNum);
+        setElud(getElud()+suvalinetagasilook);
         System.out.println("Vaenlane kaitses ennast ning tegi sulle haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
     }
 }

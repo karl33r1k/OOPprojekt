@@ -8,6 +8,7 @@ public abstract class Karakter {
     public Karakter(String nimi) {
         this.nimi = nimi;
         this.energia = 50;
+        this.
     }
     public void rynda(Vaenlane vaenlane) {
         vaenlane.setElud(vaenlane.getElud() - 10);
