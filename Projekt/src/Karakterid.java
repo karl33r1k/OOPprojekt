@@ -10,24 +10,6 @@ public abstract class Karakterid {
     public Karakterid(String nimi) {
         this.nimi = nimi;
     }
-    public void rynda(Vaenlane vaenlane) {
-
-        System.out.println("Karakter ründab");
-        vaenlane.setElud(vaenlane.getElud() - rynnakNum);
-        System.out.println("Karakter ründas: " + rynnakNum);
-    }
-    public void kaitse(Vaenlane vaenlane) {
-        Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0,getKaitseNum()) + 1;
-//        System.out.println("Kaitse number on " + getKaitseNum());
-        vaenlane.setElud(vaenlane.getElud() - suvalinetagasilook);
-        setElud(getElud()+suvalinetagasilook);
-        System.out.println("Karakter kaitses ennast ning tegi vastasele haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
-    }
-    public void ravi() {
-        System.out.println("Karakter ravib");
-        setElud(getElud()+raviNum);
-    }
 
     public int getRynnakNum() {
         return rynnakNum;
