@@ -18,16 +18,20 @@ public class Main {
 
         int skoor = 0;
 
-        while (karakter.getElud() > 0) {
+        while (true) {
+            if (karakter.getElud() <= 0){
+                System.out.println(nimi + " saavutas " + skoor + " punkti.");
+                break;
+            }
             Random random = new Random();
             Vaenlane vaenlane = vaenlased(raskusaste); // suvalise vaenlase saamine
             int suva2 = random.nextInt(0, 2); // määrab, kas esimesena alustab mängija või vaenlane
             if (suva2 == 0) { // kui on 0, alustab mängija
                 while(vaenlane.getElud() > 0) {
+                    if (karakter.getElud() > 0 && vaenlane.getElud() > 0) {
                     System.out.println(karakter);
-                    if (karakter.getElud() > 0) {
                         System.out.println(vaenlane);
-                        System.out.println("Valikud on: 'R' - ründa, 'K' - kaitse, 'P' - parane");
+                        System.out.println("Valikud on: 'R' - ründa, 'K' - kaitse, 'P' - parane, 'S' - supervõime");
                         System.out.println("Sisesta valik: ");
                         String valik = scanner.nextLine();
 
@@ -35,37 +39,37 @@ public class Main {
                             case "R" -> karakter.rynda(vaenlane);
                             case "K" -> karakter.kaitse(vaenlane);
                             case "P" -> karakter.ravi();
+                            case "S" -> karakter.erilinevoime(vaenlane);
                         }
                         vaenlane.tegevus(karakter); // vaenlase käik
                     }else {
-                        System.out.println(nimi + " saavutas " + skoor + " punkti.");
                         break;
                     }
                 }
 
             } else { // alustab vaenlane
                 while(vaenlane.getElud() > 0) {
-                    if (karakter.getElud() > 0 && vaenlane.getElud() > 0) { //
+                    if (karakter.getElud() > 0 && vaenlane.getElud() > 0) {
                         vaenlane.tegevus(karakter);
                         System.out.println(vaenlane);
                         System.out.println(karakter);
                         // mangija kaik
-                        System.out.println("Valikud on: R - ründa, K - kaitse, P - parane");
+                        System.out.println("Valikud on: R - ründa, K - kaitse, P - parane, 'S' - supervõime");
                         System.out.println("Sisesta valik: ");
                         String valik = scanner.nextLine();
                         switch (valik) {
                             case "R" -> karakter.rynda(vaenlane);
                             case "K" -> karakter.kaitse(vaenlane);
                             case "P" -> karakter.ravi();
+                            case "S" -> karakter.erilinevoime(vaenlane);
                         }
 
-                    } else {
-                        System.out.println(nimi + " saavutas " + skoor + " punkti.");
+                    }else {
                         break;
                     }
                 }
             }
-            if (vaenlane.getElud() <= 0) { // skoori kasvatamine
+            if (vaenlane.getElud() <= 0 && karakter.getElud() > 0) { // skoori kasvatamine
                 skoor += skoorisysteem(vaenlane);
                 System.out.println("Võitsid vastase " + vaenlane.getNimi() + " vastu. Sind ootab ees uus vastane.");
                 System.out.println();

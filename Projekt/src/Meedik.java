@@ -10,21 +10,6 @@ public class Meedik extends Karakter{
         this.raviNum = 15;
         this.energia = 20;
     }
-
-    @Override
-    public void rynda(Vaenlane vaenlane) {
-        super.rynda(vaenlane);
-        vaenlane.setElud(vaenlane.getElud() - rynnakNum);
-    }
-
-    public void kaitse(Vaenlane vaenlane) {
-        super.kaitse(vaenlane);
-        Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0,kaitseNum)+1;
-        vaenlane.setElud(vaenlane.getElud() - suvalinetagasilook);
-        setElud(getElud()+suvalinetagasilook);
-        System.out.println("Karakter kaitses ennast ning tegi vastasele haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
-    }
     public void erilinevoime(Vaenlane vaenlane){
         if(energia >= 70){
             energia -= 70;
