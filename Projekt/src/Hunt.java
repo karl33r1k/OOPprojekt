@@ -6,7 +6,7 @@ public class Hunt extends RaskedVaenlased {
         this.elud = 65;
         this.rynnakNum = 30;
         this.kaitseNum = 15;
-        this.raviNum = 5;
+        this.raviNum = 15; // suurem kaitse- ja ravinumber
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Hunt extends RaskedVaenlased {
         int suvalinetagasilook = random.nextInt(0, kaitseNum) + 1;
         karakter.setElud(karakter.getElud() - suvalinetagasilook);
         setElud(getElud() + suvalinetagasilook);
-        System.out.println("Vaenlane kaitses ennast ning tegi sulle haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
+        System.out.println("Vaenlane kaitses ennast, tehes sulle haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
     }
 
 }

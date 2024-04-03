@@ -8,10 +8,11 @@ public class Draakon extends RaskedVaenlased {
         this.elud = 80;
         this.rynnakNum = 35;
         this.kaitseNum = 12;
+        this.raviNum = 10;
     }
 
     @Override
-    public void rynda(Karakter karakter) {
+    public void rynda(Karakter karakter) { // iga kolmas rünnak on tugevam
         mitmesrynnak++;
         if (mitmesrynnak % 3 == 0) {
             karakter.setElud(karakter.getElud() - (rynnakNum + 10));
@@ -22,19 +23,4 @@ public class Draakon extends RaskedVaenlased {
         }
     }
 
-    @Override
-    public void kaitse(Karakter karakter) {
-        super.kaitse(karakter);
-        Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0, kaitseNum) + 1;
-        karakter.setElud(karakter.getElud() - suvalinetagasilook);
-        setElud(getElud() + suvalinetagasilook);
-        System.out.println("Vaenlane kaitses ennast ning tegi sulle haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
-    }
-
-    @Override
-    public void ravi() {
-        super.ravi();
-        System.out.println("Draakon ravis ennast ja sai tagasi 15 elu.");
-    }
 }

@@ -7,10 +7,11 @@ public class Raisakotkas extends RaskedVaenlased {
         this.elud = 50;
         this.rynnakNum = 30;
         this.kaitseNum = 12;
+        this.raviNum = 10;
     }
 
     @Override
-    public void rynda(Karakter karakter) {
+    public void rynda(Karakter karakter) { // saab rünnates elusid tagasi
         super.rynda(karakter);
         setElud(getElud() + 8);
         karakter.setElud(karakter.getElud() - rynnakNum);

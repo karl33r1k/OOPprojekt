@@ -14,7 +14,7 @@ public abstract class Karakter {
     }
     public void kaitse(Vaenlane vaenlane) {
         Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0,10)+1;
+        int suvalinetagasilook = random.nextInt(0,10) + 1;
         vaenlane.setElud(vaenlane.getElud() - suvalinetagasilook);
     }
     public void ravi() {
@@ -32,14 +32,6 @@ public abstract class Karakter {
         this.elud = elud;
     }
 
-
-    public String getKarakterNimi() {
-        return nimi;
-    }
-
-    public void setKarakterNimi(String nimi) {
-        this.nimi = nimi;
-    }
 
     @Override
     public String toString() {
