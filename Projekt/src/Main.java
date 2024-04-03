@@ -30,6 +30,7 @@ public class Main {
                         System.out.println("Valikud on: 'R' - ründa, 'K' - kaitse, 'P' - parane");
                         System.out.println("Sisesta valik: ");
                         String valik = scanner.nextLine();
+
                         switch (valik) {
                             case "R" -> karakter.rynda(vaenlane);
                             case "K" -> karakter.kaitse(vaenlane);

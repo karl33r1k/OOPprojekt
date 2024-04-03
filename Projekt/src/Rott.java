@@ -6,7 +6,7 @@ public class Rott extends KergedVaenlased{
         super(nimi);
         this.elud = 20;
         this.kaitseNum = 5;
-        this.raviNum = 8;
+        this.raviNum = 5;
     }
     @Override
     public void rynda(Karakter karakter) {
@@ -22,6 +22,7 @@ public class Rott extends KergedVaenlased{
     public void kaitse(Karakter karakter) {
         super.kaitse(karakter);
         Random random = new Random();
+      
         int suvalinetagasilook = random.nextInt(0,10) + 1;
         karakter.setElud(karakter.getElud() - suvalinetagasilook);
         setElud(getElud()+raviNum);

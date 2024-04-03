@@ -1,10 +1,8 @@
 import java.util.Random;
 
-public abstract class Vaenlane {
-    public String nimi;
-    public int elud;
+public abstract class Vaenlane extends Karakterid {
     public Vaenlane(String nimi) {
-        this.nimi = nimi;
+        super(nimi);
     }
     public abstract void rynda(Karakter karakter);
     public abstract void kaitse(Karakter karakter);
