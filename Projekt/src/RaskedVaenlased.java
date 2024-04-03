@@ -12,7 +12,12 @@ public abstract class RaskedVaenlased extends Vaenlane {
 
     @Override
     public void kaitse(Karakter karakter) {
-        System.out.println("Vaenlane otsustas kaitsta ");
+        System.out.println("Vaenlane otsustas kaitsta");
+        Random random = new Random();
+        int suvalinetagasilook = random.nextInt(0, kaitseNum) + 1;
+        karakter.setElud(karakter.getElud() - suvalinetagasilook);
+        setElud(getElud() + suvalinetagasilook);
+        System.out.println("Vaenlane kaitses ennast, tehes sulle haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
     }
 
     @Override
@@ -45,9 +50,4 @@ public abstract class RaskedVaenlased extends Vaenlane {
         this.elud = elud;
     }
 
-    @Override
-    public String toString() {
-        return "Vaenlase nimi: " + nimi +
-                ", vaenlase elud: " + elud;
-    }
 }

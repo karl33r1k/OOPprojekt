@@ -1,6 +1,3 @@
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,38 +14,29 @@ public class Main {
         System.out.println("Valikud on: 'Kerge', 'Raske'");
         String raskusaste = scanner.nextLine();
 
-        Karakter karakter = karakterityyp(nimi, tüüp);
+        Karakter karakter = karakterityyp(nimi, tüüp); // karakteri loomine vastavalt valitud tüübile ja raskusastmele
 
         int skoor = 0;
-        int raund = 0;
 
         while (karakter.getElud() > 0) {
-//            //Suvalise vaenlase saamine
             Random random = new Random();
-//            int suva = random.nextInt(0, vaenlased.size());
-//            Vaenlane vaenlane = vaenlased.get(suva);
-            Vaenlane vaenlane = vaenlased(raskusaste);
-            // määrab, kas esimesena alustab mängija või vaenlane
-            int suva2 = random.nextInt(0, 2);
+            Vaenlane vaenlane = vaenlased(raskusaste); // suvalise vaenlase saamine
+            int suva2 = random.nextInt(0, 2); // määrab, kas esimesena alustab mängija või vaenlane
             if (suva2 == 0) { // kui on 0, alustab mängija
-                while(vaenlane.getElud() > 0){
+                while(vaenlane.getElud() > 0) {
                     System.out.println(karakter);
                     if (karakter.getElud() > 0) {
                         System.out.println(vaenlane);
                         System.out.println("Valikud on: 'R' - ründa, 'K' - kaitse, 'P' - parane");
                         System.out.println("Sisesta valik: ");
                         String valik = scanner.nextLine();
-                        if (valik.equals("R")) {
-                            karakter.rynda(vaenlane);
-                        } else if (valik.equals("K")) {
-                            karakter.kaitse(vaenlane);
-                        } else if (valik.equals("P")) {
-                            karakter.ravi();
-                        } else if(valik.equals("S")){ //special ability
-                            karakter.erilinevoime(vaenlane);
+
+                        switch (valik) {
+                            case "R" -> karakter.rynda(vaenlane);
+                            case "K" -> karakter.kaitse(vaenlane);
+                            case "P" -> karakter.ravi();
                         }
-                        //vaenlase kaik
-                        vaenlane.tegevus(karakter);
+                        vaenlane.tegevus(karakter); // vaenlase käik
                     }else {
                         System.out.println(nimi + " saavutas " + skoor + " punkti.");
                         break;
@@ -57,7 +45,7 @@ public class Main {
 
             } else { // alustab vaenlane
                 while(vaenlane.getElud() > 0) {
-                    if (karakter.getElud() > 0) {
+                    if (karakter.getElud() > 0 && vaenlane.getElud() > 0) { //
                         vaenlane.tegevus(karakter);
                         System.out.println(vaenlane);
                         System.out.println(karakter);
@@ -65,12 +53,10 @@ public class Main {
                         System.out.println("Valikud on: R - ründa, K - kaitse, P - parane");
                         System.out.println("Sisesta valik: ");
                         String valik = scanner.nextLine();
-                        if (valik.equals("R")) {
-                            karakter.rynda(vaenlane);
-                        } else if (valik.equals("K")) {
-                            karakter.kaitse(vaenlane);
-                        } else if (valik.equals("P")) {
-                            karakter.ravi();
+                        switch (valik) {
+                            case "R" -> karakter.rynda(vaenlane);
+                            case "K" -> karakter.kaitse(vaenlane);
+                            case "P" -> karakter.ravi();
                         }
 
                     } else {
@@ -79,7 +65,7 @@ public class Main {
                     }
                 }
             }
-            if (vaenlane.getElud() <= 0) {
+            if (vaenlane.getElud() <= 0) { // skoori kasvatamine
                 skoor += skoorisysteem(vaenlane);
                 System.out.println("Võitsid vastase " + vaenlane.getNimi() + " vastu. Sind ootab ees uus vastane.");
                 System.out.println();
@@ -99,7 +85,6 @@ public class Main {
         }
         public static Vaenlane vaenlased(String raskusaste) {
             Vaenlane vaenlane1 = null;
-            List<Vaenlane> vaenlased = new ArrayList<Vaenlane>();
             if (raskusaste.equals("Kerge")) {
                 Vaenlane nahkhiir = new Nahkhiir("nahkhiir");
                 Vaenlane rott = new Rott("rott");
@@ -110,7 +95,7 @@ public class Main {
                     vaenlane1 = nahkhiir;
                 } else if (suvaline == 1) {
                     vaenlane1 = rott;
-                } else if (suvaline == 2) {
+                } else {
                     vaenlane1 = vihmauss;
                 }
             } else if (raskusaste.equals("Raske")) {
@@ -119,36 +104,28 @@ public class Main {
                 Vaenlane draakon = new Draakon("draakon");
                 Random random = new Random();
                 int suvaline = random.nextInt(0,3);
-                if (suvaline == 0){
+                if (suvaline == 0) {
                     vaenlane1 = raisakotkas;
                 } else if (suvaline == 1) {
                     vaenlane1 = hunt;
-                } else if (suvaline == 2) {
+                } else {
                     vaenlane1 = draakon;
                 }
             }
+            System.out.println("Vaenlaseks osutus " + vaenlane1.getNimi());
             return vaenlane1;
         }
-        public static int skoorisysteem(Vaenlane vaenlane){
+        public static int skoorisysteem(Vaenlane vaenlane) {
             int skoor = 0;
-            if (vaenlane.getNimi().equals("rott")){
-                skoor += 100;
-            } else if (vaenlane.getNimi().equals("nahkhiir")) {
-                skoor += 120;
-            } else if (vaenlane.getNimi().equals("vihmauss")){
-                skoor += 140;
-            } else if (vaenlane.getNimi().equals("raisakotkas")) {
-                skoor += 200;
-            } else if (vaenlane.getNimi().equals("hunt")) {
-                skoor += 240;
-            } else if (vaenlane.getNimi().equals("draakon")) {
-                skoor += 280;
+            switch (vaenlane.getNimi()) {
+                case "rott" -> skoor += 100;
+                case "nahkhiir" -> skoor += 120;
+                case "vihmauss" -> skoor += 140;
+                case "raisakotkas" -> skoor += 200;
+                case "hunt" -> skoor += 240;
+                case "draakon" -> skoor += 280;
             }
             return skoor;
         }
-
-
-
-
 }
 

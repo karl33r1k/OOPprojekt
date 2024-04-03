@@ -1,27 +1,30 @@
+import java.util.Random;
+
 public class Raisakotkas extends RaskedVaenlased {
 
     public Raisakotkas(String nimi) {
         super(nimi);
-        this.elud = 40;
+        this.elud = 50;
+        this.rynnakNum = 30;
+        this.kaitseNum = 12;
+        this.raviNum = 10;
     }
 
     @Override
-    public void rynda(Karakter karakter) {
+    public void rynda(Karakter karakter) { // saab rünnates elusid tagasi
         super.rynda(karakter);
-        setElud(getElud() + 15);
-        System.out.println("Raisakotkas vähendas sinu elusid 30 võrra ja sai tagasi 15 elu.");
+        setElud(getElud() + 8);
+        karakter.setElud(karakter.getElud() - rynnakNum);
+        System.out.println("Vaenlane ründas ja tegi haiget: " + rynnakNum + ", lisaks sai tagasi 15 elu.");
     }
-
     @Override
     public void kaitse(Karakter karakter) {
         super.kaitse(karakter);
-        System.out.println("Raisakotkas kaitses sinu rünnakut ja vähendas sinu elusid ");
-    }
-
-    @Override
-    public void ravi() {
-        super.ravi();
-        System.out.println("Raisakotkas ravis end ja sai tagasi 15 elu.");
+        Random random = new Random();
+        int suvalinetagasilook = random.nextInt(0, kaitseNum) + 1;
+        karakter.setElud(karakter.getElud() - suvalinetagasilook);
+        setElud(getElud() + suvalinetagasilook);
+        System.out.println("Vaenlane kaitses ennast ning tegi sulle haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
     }
 
 }

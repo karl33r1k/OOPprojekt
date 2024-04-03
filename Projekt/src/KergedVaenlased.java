@@ -1,6 +1,11 @@
 import java.util.Random;
 
-public abstract class KergedVaenlased extends Vaenlane{
+public abstract class KergedVaenlased extends Vaenlane {
+    public int elud;
+    public int rynnakNum;
+    public int kaitseNum;
+    public int raviNum;
+    
     public KergedVaenlased(String nimi) {
         super(nimi);
     }
@@ -16,7 +21,7 @@ public abstract class KergedVaenlased extends Vaenlane{
     @Override
     public void ravi() {
         System.out.println("Vaenlane otsustas ravida");
-        setElud(getElud()+raviNum);
+        setElud(getElud() + raviNum);
         System.out.println("Vaenlane ravis ennast: " + raviNum);
     }
     @Override
@@ -40,11 +45,5 @@ public abstract class KergedVaenlased extends Vaenlane{
     public void setElud(int elud) {
         this.elud = elud;
     }
-    @Override
-    public String toString() {
-        return "Vaenlane{" +
-                "nimi='" + nimi + '\'' +
-                ", elud=" + elud +
-                '}';
-    }
+
 }

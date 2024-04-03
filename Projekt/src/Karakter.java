@@ -10,7 +10,9 @@ public abstract class Karakter extends Karakterid {
         System.out.println("Karakter ründab");
     }
     public void kaitse(Vaenlane vaenlane) {
-        System.out.println("Karakter kaitseb");
+        Random random = new Random();
+        int suvalinetagasilook = random.nextInt(0,10) + 1;
+        vaenlane.setElud(vaenlane.getElud() - suvalinetagasilook);
     }
     public void ravi() {
         System.out.println("Karakter ravib");
@@ -31,17 +33,6 @@ public abstract class Karakter extends Karakterid {
     public void setElud(int elud) {
         this.elud = elud;
     }
-
-
-    public String getKarakterNimi() {
-        return nimi;
-    }
-
-    public void setKarakterNimi(String nimi) {
-        this.nimi = nimi;
-    }
-
-
     @Override
     public String toString() {
         return "Karakteri nimi: " + nimi +

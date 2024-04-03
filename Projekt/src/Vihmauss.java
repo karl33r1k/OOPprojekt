@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Vihmauss extends KergedVaenlased{
+public class Vihmauss extends KergedVaenlased {
     public Vihmauss(String nimi) {
         super(nimi);
         this.elud = 30;
@@ -20,16 +20,16 @@ public class Vihmauss extends KergedVaenlased{
     public void kaitse(Karakter karakter) {
         super.kaitse(karakter);
         Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0,kaitseNum)+1;
+        int suvalinetagasilook = random.nextInt(0, kaitseNum) + 1;
         karakter.setElud(karakter.getElud() - suvalinetagasilook);
         setElud(getElud()+suvalinetagasilook);
         System.out.println("Vaenlane kaitses ennast ning tegi sulle haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
     }
 
-    @Override
-    public void ravi() {
-        super.ravi();
-        setElud(getElud()+raviNum);
-    }
+//    @Override
+//    public void ravi() {
+//        super.ravi();
+//        setElud(getElud() + raviNum);
+//    } votsin ara, sest muidu ravib ennast 2 korda (KergedVaenlased klassis teeb ravimise meetod sama asja)
 
 }

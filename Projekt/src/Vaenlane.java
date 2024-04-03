@@ -24,4 +24,9 @@ public abstract class Vaenlane extends Karakterid {
     public void setElud(int elud) {
         this.elud = elud;
     }
+
+    public String toString() {
+        return "Vaenlase nimi: " + getNimi() +
+                ", vaenlase elud: " + getElud();
+    }
 }
