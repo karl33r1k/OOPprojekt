@@ -11,16 +11,13 @@ public class Vibulaskja extends Karakter{
         this.energia = 10;
     }
     public void rynda(Vaenlane vaenlane) {
-        super.rynda(vaenlane);
-        vaenlane.setElud(vaenlane.getElud() - rynnakNum);
-    }
-    public void kaitse(Vaenlane vaenlane) {
-        super.kaitse(vaenlane);
+        System.out.println("Karakter ründab");
         Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0,20)+1;
-        vaenlane.setElud(vaenlane.getElud() - suvalinetagasilook);
-        setElud(getElud()+suvalinetagasilook);
-        System.out.println("Karakter kaitses ennast ning tegi vastasele haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
+        for (int i = 0; i < 3; i++) {
+            int rynnak = random.nextInt(0,rynnakNum)+1;
+            vaenlane.setElud(vaenlane.getElud() - rynnak);
+            System.out.println("Vibulaskja " + (i+1) + ". rünnak tegi vaenlasele valu: " + rynnak);
+        }
     }
     public void erilinevoime(Vaenlane vaenlane) {
         Random random = new Random();

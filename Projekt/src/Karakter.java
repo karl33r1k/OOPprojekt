@@ -6,18 +6,6 @@ public abstract class Karakter extends Karakterid {
         super(nimi);
     }
 
-    public void rynda(Vaenlane vaenlane) {
-        System.out.println("Karakter ründab");
-    }
-    public void kaitse(Vaenlane vaenlane) {
-        Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0,10) + 1;
-        vaenlane.setElud(vaenlane.getElud() - suvalinetagasilook);
-    }
-    public void ravi() {
-        System.out.println("Karakter ravib");
-        setElud(getElud()+raviNum);
-    }
     public void puhka(){
         Random random = new Random();
         int suvalineenergia = random.nextInt(0,51);
