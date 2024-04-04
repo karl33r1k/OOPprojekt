@@ -1,10 +1,9 @@
 import java.util.Random;
 import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); // kasutajalt info küsimine
         System.out.println("Sisesta enda karakteri nimi: ");
         String nimi = scanner.nextLine();
         System.out.println("Sisesta karakteri tüüp: ");
@@ -19,20 +18,19 @@ public class Main {
         int skoor = 0;
 
         while (true) {
-            if (karakter.getElud() <= 0){
-                System.out.println(nimi + " saavutas " + skoor + " punkti.");
+            if (karakter.getElud() <= 0) { // kui karakteri elud saavad otsa, kuvatakse skoor
+                System.out.println(nimi + " saavutas " + skoor + " punkti");
                 break;
             }
             Random random = new Random();
             Vaenlane vaenlane = vaenlased(raskusaste); // suvalise vaenlase saamine
             int suva2 = random.nextInt(0, 2); // määrab, kas esimesena alustab mängija või vaenlane
-            if (vaenlane.getNimi().contains("kiire") || suva2 == 1){
+            if (vaenlane.getNimi().contains("kiire") || suva2 == 0) {
                 while(vaenlane.getElud() > 0) {
                     if (karakter.getElud() > 0 && vaenlane.getElud() > 0) {
                         vaenlane.tegevus(karakter);
                         System.out.println(vaenlane);
-                        System.out.println(karakter);
-                        // mangija kaik
+                        System.out.println(karakter); // mängija käik
                         System.out.println("Valikud on: '1' - ründa, '2' - kaitse, '3' - ravi, '4', puhka, '5' - supervõime");
                         System.out.println("Sisesta valik: ");
                         String valik = scanner.nextLine();
@@ -45,12 +43,12 @@ public class Main {
                             case "5" -> karakter.erilinevoime(vaenlane);
                         }
 
-                    }else {
+                    } else {
                         break;
                     }
                 }
             }
-            else if (suva2 == 0) { // kui on 0, alustab mängija
+            else if (suva2 == 1) { // kui on 1, alustab mängija
                 while(vaenlane.getElud() > 0) {
                     if (karakter.getElud() > 0 && vaenlane.getElud() > 0) {
                         System.out.println(karakter);
@@ -67,7 +65,7 @@ public class Main {
                             case "5" -> karakter.erilinevoime(vaenlane);
                         }
                         vaenlane.tegevus(karakter); // vaenlase käik
-                    }else {
+                    } else {
                         break;
                     }
                 }
@@ -90,7 +88,7 @@ public class Main {
             }
             return karakter;
         }
-        public static Vaenlane vaenlased(String raskusaste) {
+        public static Vaenlane vaenlased(String raskusaste) { // valib suvalise vaenlase
             Vaenlane vaenlane1 = null;
             if (raskusaste.equals("Kerge")) {
                 Vaenlane nahkhiir = new Nahkhiir("nahkhiir");
@@ -125,7 +123,7 @@ public class Main {
             System.out.println("Vaenlaseks osutus " + vaenlane1.getNimi());
             return vaenlane1;
         }
-        public static int skoorisysteem(Vaenlane vaenlane) {
+        public static int skoorisysteem(Vaenlane vaenlane) { // liidab skoori
             int skoor = 0;
             switch (vaenlane.getNimi()) {
                 case "rott" -> skoor += 100;

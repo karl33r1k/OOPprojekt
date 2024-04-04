@@ -15,7 +15,7 @@ public class Raisakotkas extends RaskedVaenlased {
         super.rynda(karakter);
         setElud(getElud() + 8);
         karakter.setElud(karakter.getElud() - rynnakNum);
-        System.out.println("Vaenlane ründas ja tegi haiget: " + rynnakNum + ", lisaks sai tagasi 15 elu.");
+        System.out.println("Vaenlane ründas ja tegi haiget: " + rynnakNum + ", lisaks sai tagasi 15 elu");
     }
 
 }

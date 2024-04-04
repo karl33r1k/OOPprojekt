@@ -17,7 +17,7 @@ public class Sõdur extends Karakter{ //Sõdur klass - karakteri isendiväljade 
             System.out.println("Karakter sai 20 elu ja tegi vastasele haiget: 30");
         }
         else {
-            System.out.println("Teil ei ole piisavalt energiat, sind sunnitakse automaatselt puhkama");
+            System.out.println("Sul ei ole piisavalt energiat, sind sunnitakse automaatselt puhkama");
             puhka();
         }
     }

@@ -5,7 +5,7 @@ public class Vibulaskja extends Karakter{ //Vibulaskja klass - karakteri isendiv
     public Vibulaskja(String nimi) {
         super(nimi);
         this.elud = 50;
-        this.rynnakNum = 15;
+        this.rynnakNum = 10;
         this.kaitseNum = 8;
         this.raviNum = 6;
         this.energia = 10;
