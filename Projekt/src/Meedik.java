@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Meedik extends Karakter{
+public class Meedik extends Karakter{ //Meedik klass - karakteri isendiväljade väärtused, temale eriline võime
 
     public Meedik(String nimi) {
         super(nimi);
@@ -10,7 +10,7 @@ public class Meedik extends Karakter{
         this.raviNum = 15;
         this.energia = 20;
     }
-    public void erilinevoime(Vaenlane vaenlane){
+    public void erilinevoime(Vaenlane vaenlane){ //Meediku eriline võime annab talle energiat kulutades suure hulga elusid
         if(energia >= 70){
             energia -= 70;
             setElud(getElud()+50);

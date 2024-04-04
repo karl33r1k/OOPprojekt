@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Sõdur extends Karakter{
+public class Sõdur extends Karakter{ //Sõdur klass - karakteri isendiväljade väärtused, temale eriline võime
     public Sõdur(String nimi) {
         super(nimi);
         this.elud = 100;
@@ -9,7 +9,7 @@ public class Sõdur extends Karakter{
         this.raviNum = 4;
         this.energia = 45;
     }
-    public void erilinevoime(Vaenlane vaenlane){ //Sõduri eriline võime
+    public void erilinevoime(Vaenlane vaenlane){ //Sõduri eriline võime kulutades energiat teeb vaenlasele haiget: 30 ühiku eest ning ravib karakteri 20 ühiku eest
         if(energia >= 50){
             energia -= 50;
             vaenlane.setElud(vaenlane.getElud() - 30);

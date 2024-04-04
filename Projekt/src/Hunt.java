@@ -16,14 +16,4 @@ public class Hunt extends RaskedVaenlased {
         System.out.println("Vaenlane ründas ja tegi haiget: " + rynnakNum);
     }
 
-    @Override
-    public void kaitse(Karakter karakter) {
-        super.kaitse(karakter);
-        Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0, kaitseNum) + 1;
-        karakter.setElud(karakter.getElud() - suvalinetagasilook);
-        setElud(getElud() + suvalinetagasilook);
-        System.out.println("Vaenlane kaitses ennast, tehes sulle haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
-    }
-
 }

@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class Nahkhiir extends KergedVaenlased{
+    int mitmeskord = 1;
 
     public Nahkhiir(String nimi) {
         super(nimi);
@@ -13,19 +14,14 @@ public class Nahkhiir extends KergedVaenlased{
     @Override
     public void rynda(Karakter karakter) {
         super.rynda(karakter);
-        karakter.setElud(karakter.getElud() - rynnakNum);
-        System.out.println("Vaenlane ründas ja tegi haiget: " + rynnakNum);
-    }
-
-
-    @Override
-    public void kaitse(Karakter karakter) {
-        super.kaitse(karakter);
-        Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0,kaitseNum)+1;
-        karakter.setElud(karakter.getElud() - suvalinetagasilook);
-        setElud(getElud()+suvalinetagasilook);
-        System.out.println("Vaenlane kaitses ennast ning tegi sulle haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
+        if ((mitmeskord % 3) == 0){
+            karakter.setElud(karakter.getElud() - 20);
+            System.out.println("Vaenlane viskas sind kiviga ja tegi haiget: 20" );
+        } else {
+            mitmeskord += 1;
+            karakter.setElud(karakter.getElud() - rynnakNum);
+            System.out.println("Vaenlane ründas ja tegi haiget: " + rynnakNum);
+        }
 
     }
 }

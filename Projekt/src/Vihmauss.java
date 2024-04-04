@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class Vihmauss extends KergedVaenlased {
+    int mitmeskord = 0;
     public Vihmauss(String nimi) {
         super(nimi);
         this.elud = 30;
@@ -12,24 +13,17 @@ public class Vihmauss extends KergedVaenlased {
     @Override
     public void rynda(Karakter karakter) {
         super.rynda(karakter);
-        karakter.setElud(karakter.getElud() - rynnakNum);
-        System.out.println("Vaenlane ründas ja tegi haiget: " + rynnakNum);
+        if (mitmeskord == 0){
+            mitmeskord += 1;
+            karakter.setElud(karakter.getElud() - (rynnakNum*2));
+            System.out.println("Vihmauss hiilis ja tegi sulle üllatusrünnaku");
+            System.out.println("Vaenlane ründas ja tegi haiget: " + (rynnakNum*2));
+        }
+        else {
+            mitmeskord += 1;
+            karakter.setElud(karakter.getElud() - rynnakNum);
+            System.out.println("Vaenlane ründas ja tegi haiget: " + rynnakNum);
+        }
     }
-
-    @Override
-    public void kaitse(Karakter karakter) {
-        super.kaitse(karakter);
-        Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0, kaitseNum) + 1;
-        karakter.setElud(karakter.getElud() - suvalinetagasilook);
-        setElud(getElud()+suvalinetagasilook);
-        System.out.println("Vaenlane kaitses ennast ning tegi sulle haiget: " + suvalinetagasilook + " ning ravis ennast sama palju");
-    }
-
-//    @Override
-//    public void ravi() {
-//        super.ravi();
-//        setElud(getElud() + raviNum);
-//    } votsin ara, sest muidu ravib ennast 2 korda (KergedVaenlased klassis teeb ravimise meetod sama asja)
 
 }
