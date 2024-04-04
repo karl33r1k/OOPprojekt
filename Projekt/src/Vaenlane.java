@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public abstract class Vaenlane extends Karakterid {
+public abstract class Vaenlane extends Karakterid { // teeb sama, mis klass Karakter, aga suunab tegevused karakteri vastu
     public Vaenlane(String nimi) {
         super(nimi);
     }

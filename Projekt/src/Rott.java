@@ -13,7 +13,7 @@ public class Rott extends KergedVaenlased{
         super.rynda(karakter);
         for (int i = 0; i < 3; i++) {
             Random random = new Random();
-            int rynne = random.nextInt(0,10) + 1;
+            int rynne = random.nextInt(0,7) + 1;
             karakter.setElud(karakter.getElud() - rynne);
             System.out.println("Vaenlane ründas ja tegi haiget: " + rynne);
         }

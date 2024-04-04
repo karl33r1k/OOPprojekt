@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public abstract class RaskedVaenlased extends Vaenlane {
+public abstract class RaskedVaenlased extends Vaenlane { // raskematel vaenlastel on suurem tõenäosus, et nad ründavad
     public RaskedVaenlased(String nimi) {
         super(nimi);
     }
