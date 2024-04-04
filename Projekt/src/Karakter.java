@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public abstract class Karakter extends Karakterid {
+public abstract class Karakter extends Karakterid { //Lisab isendivälja energia (karakterite eripära), puhkab meetodi ning tegevusmeetodid vaenlaste vastu, toString väljastus karakteri andmetega
     public int energia;
     public Karakter(String nimi) {
         super(nimi);
@@ -20,7 +20,7 @@ public abstract class Karakter extends Karakterid {
     }
     public void kaitse(Vaenlane vaenlane) {
         Random random = new Random();
-        int suvalinetagasilook = random.nextInt(0,getKaitseNum()) + 1;
+        int suvalinetagasilook = random.nextInt(0,kaitseNum) + 1;
 //        System.out.println("Kaitse number on " + getKaitseNum());
         vaenlane.setElud(vaenlane.getElud() - suvalinetagasilook);
         setElud(getElud()+suvalinetagasilook);
@@ -31,14 +31,6 @@ public abstract class Karakter extends Karakterid {
         setElud(getElud()+raviNum);
     }
     public abstract void erilinevoime(Vaenlane vaenlane);
-
-    public int getElud() {
-        return elud;
-    }
-
-    public void setElud(int elud) {
-        this.elud = elud;
-    }
     @Override
     public String toString() {
         return "Karakteri nimi: " + nimi +

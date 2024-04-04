@@ -22,21 +22,6 @@ public abstract class Vaenlane extends Karakterid {
         System.out.println("Vaenlane ravis ennast " + raviNum);
     }
 
-    public String getNimi() {
-        return nimi;
-    }
-
-    public void setNimi(String nimi) {
-        this.nimi = nimi;
-    }
-
-    public int getElud() {
-        return elud;
-    }
-
-    public void setElud(int elud) {
-        this.elud = elud;
-    }
 
     public String toString() {
         return "Vaenlase nimi: " + getNimi() +

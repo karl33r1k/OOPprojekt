@@ -26,44 +26,47 @@ public class Main {
             Random random = new Random();
             Vaenlane vaenlane = vaenlased(raskusaste); // suvalise vaenlase saamine
             int suva2 = random.nextInt(0, 2); // määrab, kas esimesena alustab mängija või vaenlane
-            if (suva2 == 0) { // kui on 0, alustab mängija
-                while(vaenlane.getElud() > 0) {
-                    if (karakter.getElud() > 0 && vaenlane.getElud() > 0) {
-                    System.out.println(karakter);
-                        System.out.println(vaenlane);
-                        System.out.println("Valikud on: 'R' - ründa, 'K' - kaitse, 'P' - parane, 'S' - supervõime");
-                        System.out.println("Sisesta valik: ");
-                        String valik = scanner.nextLine();
-
-                        switch (valik) {
-                            case "R" -> karakter.rynda(vaenlane);
-                            case "K" -> karakter.kaitse(vaenlane);
-                            case "P" -> karakter.ravi();
-                            case "S" -> karakter.erilinevoime(vaenlane);
-                        }
-                        vaenlane.tegevus(karakter); // vaenlase käik
-                    }else {
-                        break;
-                    }
-                }
-
-            } else { // alustab vaenlane
+            if (vaenlane.getNimi().contains("kiire") || suva2 == 1){
                 while(vaenlane.getElud() > 0) {
                     if (karakter.getElud() > 0 && vaenlane.getElud() > 0) {
                         vaenlane.tegevus(karakter);
                         System.out.println(vaenlane);
                         System.out.println(karakter);
                         // mangija kaik
-                        System.out.println("Valikud on: R - ründa, K - kaitse, P - parane, 'S' - supervõime");
+                        System.out.println("Valikud on: '1' - ründa, '2' - kaitse, '3' - ravi, '4', puhka, '5' - supervõime");
                         System.out.println("Sisesta valik: ");
                         String valik = scanner.nextLine();
+
                         switch (valik) {
-                            case "R" -> karakter.rynda(vaenlane);
-                            case "K" -> karakter.kaitse(vaenlane);
-                            case "P" -> karakter.ravi();
-                            case "S" -> karakter.erilinevoime(vaenlane);
+                            case "1" -> karakter.rynda(vaenlane);
+                            case "2" -> karakter.kaitse(vaenlane);
+                            case "3" -> karakter.ravi();
+                            case "4" -> karakter.puhka();
+                            case "5" -> karakter.erilinevoime(vaenlane);
                         }
 
+                    }else {
+                        break;
+                    }
+                }
+            }
+            else if (suva2 == 0) { // kui on 0, alustab mängija
+                while(vaenlane.getElud() > 0) {
+                    if (karakter.getElud() > 0 && vaenlane.getElud() > 0) {
+                        System.out.println(karakter);
+                        System.out.println(vaenlane);
+                        System.out.println("Valikud on: '1' - ründa, '2' - kaitse, '3' - ravi, '4', puhka, '5' - supervõime");
+                        System.out.println("Sisesta valik: ");
+                        String valik = scanner.nextLine();
+
+                        switch (valik) {
+                            case "1" -> karakter.rynda(vaenlane);
+                            case "2" -> karakter.kaitse(vaenlane);
+                            case "3" -> karakter.ravi();
+                            case "4" -> karakter.puhka();
+                            case "5" -> karakter.erilinevoime(vaenlane);
+                        }
+                        vaenlane.tegevus(karakter); // vaenlase käik
                     }else {
                         break;
                     }
@@ -93,14 +96,17 @@ public class Main {
                 Vaenlane nahkhiir = new Nahkhiir("nahkhiir");
                 Vaenlane rott = new Rott("rott");
                 Vaenlane vihmauss = new Vihmauss("vihmauss");
+                Vaenlane kiirerott = new Rott("kiire rott");
                 Random random = new Random();
-                int suvaline = random.nextInt(0,3);
-                if (suvaline == 0){
+                int suvaline = random.nextInt(0,7);
+                if (suvaline == 0 || suvaline == 1){
                     vaenlane1 = nahkhiir;
-                } else if (suvaline == 1) {
+                } else if (suvaline == 2 || suvaline == 3) {
                     vaenlane1 = rott;
-                } else {
+                } else if (suvaline == 4 || suvaline == 5){
                     vaenlane1 = vihmauss;
+                } else if (suvaline == 6) {
+                    vaenlane1 = kiirerott;
                 }
             } else if (raskusaste.equals("Raske")) {
                 Vaenlane raisakotkas = new Raisakotkas("raisakotkas");
