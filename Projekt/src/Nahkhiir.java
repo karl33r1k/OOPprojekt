@@ -6,7 +6,7 @@ public class Nahkhiir extends KergedVaenlased{
     public Nahkhiir(String nimi) {
         super(nimi);
         this.elud = 25;
-        this.rynnakNum = 20;
+        this.rynnakNum = 15;
         this.kaitseNum = 5;
         this.raviNum = 6;
     }
